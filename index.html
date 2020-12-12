@@ -147,7 +147,7 @@
 		    </div>
 			<div class="container">
 				<div class="col-sm-4">
-					<button type="submit" id="submit" onclick="" class="btn btn-primary btn-sm ml-1">Add Event</button>	
+					<button type="submit" id="submit" onclick="print()" class="btn btn-primary btn-sm ml-1">Add Event</button>	
 				</div>
 			</div>
 		</div>
@@ -160,31 +160,7 @@
 		<!-- event card -->
 
 		<div class="container">
-			<div class="row">
-			  <div class="col-md-12 col-sm-12 col-lg-12">
-				<a href="">
-				  <div class="card-flyer">
-					<div class="text-box">
-					  <div class="row">
-						<div class="col-md-6">
-						  <div class="image-box">
-							<img src="images/cardimg1.png" alt="" />
-						  </div>
-						</div>
-						<div class="col-md-6">
-						  <div class="text-container">
-							<h6>Title 01</h6>
-							<p>
-							  Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sunt laborum rerum iusto aliquid sed iste commodi odit tenetur, quidem autem repellat quaerat ipsum totam similique sint qui veritatis tempora? Exercitationem!
-							</p>
-							<a href="#" class="btn btn-outline-primary">Know more</a>
-						  </div>
-						</div>
-					  </div>
-					</div>
-				  </div>
-				</a>
-			  </div>
+			<div class="row" id="cardappend">
 			  <div class="col-md-12 col-sm-12 col-lg-12">
 				<a href="">
 				  <div class="card-flyer">
@@ -356,6 +332,37 @@
 		var image = document.getElementById('output');
 		image.src = URL.createObjectURL(event.target.files[0]);
 		};
+
+		function print(){
+			var Ename= document.getElementById("ename").value;
+			var Edes= document.getElementById("edes").value;
+			var Card = document.querySelector('div #cardappend');
+			var image = document.getElementById('output');
+
+			Card.innerHTML = Card.innerHTML + `<div class="col-md-12 col-sm-12 col-lg-12" id="idA">
+					<a href="">
+					  <div class="card-flyer">
+						<div class="text-box">
+						  <div class="row">
+							<div class="col-md-6">
+							  <div class="image-box">
+								<img src=${image.src} />
+							  </div>
+							</div>
+							<div class="col-md-6">
+							  <div class="text-container">
+								<h6 id="EventT">${Ename}</h6>
+								<p id="EventD">${Edes}</p>
+								<a href="#" class="btn btn-outline-primary">Know more</a>
+							  </div>
+							</div>
+						  </div>
+						</div>
+					  </div>
+					</a>
+			  </div>`
+
+		}
     </script>
 
 </html>
