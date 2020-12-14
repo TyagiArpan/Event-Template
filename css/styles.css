@@ -96,3 +96,7 @@ footer{
 	opacity: 0.3;
 	text-align: center;
 }
+
+.close{
+	display: none;
+}

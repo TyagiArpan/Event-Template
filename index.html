@@ -162,8 +162,7 @@
 		<div class="container">
 			<div class="row" id="cardappend">
 			  <div class="col-md-12 col-sm-12 col-lg-12">
-				<a href="#">
-				  <div class="card-flyer">
+				<div class="card-flyer">
 					<div class="text-box">
 					  <div class="row">
 						<div class="col-md-6">
@@ -171,7 +170,7 @@
 							<img src="images/cardimg2.png" alt="" />
 						  </div>
 						</div>
-						<div class="col-md-6">
+						<div class="col-md-6" ><a class="close" href="#">×</a>
 						  <div class="text-container">
 							<h6>Title 01</h6>
 							<p>
@@ -183,13 +182,11 @@
 					  </div>
 					</div>
 				  </div>
-				</a>
 			  </div>
 			</div>
 
 			<div class="row">
 				<div class="col-md-12 col-sm-12 col-lg-12">
-				  <a href="#">
 					<div class="card-flyer">
 					  <div class="text-box">
 						<div class="row">
@@ -198,7 +195,7 @@
 							  <img src="images/cardimg2.png" alt="" />
 							</div>
 						  </div>
-						  <div class="col-md-6">
+						  <div class="col-md-6"><a class="close" href="#">×</a>
 							<div class="text-container">
 							  <h6>Title 01</h6>
 							  <p>
@@ -210,10 +207,8 @@
 						</div>
 					  </div>
 					</div>
-				  </a>
 				</div>
 				<div class="col-md-12 col-sm-12 col-lg-12">
-				  <a href="#">
 					<div class="card-flyer">
 					  <div class="text-box">
 						<div class="row">
@@ -222,7 +217,7 @@
 							  <img src="images/cardimg1.png" alt="" />
 							</div>
 						  </div>
-						  <div class="col-md-6">
+						  <div class="col-md-6"><a class="close" href="#">×</a>
 							<div class="text-container">
 							  <h6>Title 01</h6>
 							  <p>
@@ -234,13 +229,11 @@
 						</div>
 					  </div>
 					</div>
-				  </a>
 				</div>
 			  </div>
 
 			  <div class="row">
 				<div class="col-md-12 col-sm-12 col-lg-12">
-				  <a href="#">
 					<div class="card-flyer">
 					  <div class="text-box">
 						<div class="row">
@@ -249,7 +242,7 @@
 							  <img src="images/cardimg2.png" alt="" />
 							</div>
 						  </div>
-						  <div class="col-md-6">
+						  <div class="col-md-6"><a class="close" href="#">×</a>
 							<div class="text-container">
 							  <h6>Title 01</h6>
 							  <p>
@@ -261,10 +254,8 @@
 						</div>
 					  </div>
 					</div>
-				  </a>
 				</div>
 				<div class="col-md-12 col-sm-12 col-lg-12">
-				  <a href="#">
 					<div class="card-flyer">
 					  <div class="text-box">
 						<div class="row">
@@ -273,7 +264,7 @@
 							  <img src="images/cardimg2.png" alt="" />
 							</div>
 						  </div>
-						  <div class="col-md-6">
+						  <div class="col-md-6"><a class="close" href="#">×</a>
 							<div class="text-container">
 							  <h6>Title 01</h6>
 							  <p>
@@ -285,7 +276,6 @@
 						</div>
 					  </div>
 					</div>
-				  </a>
 				</div>
 			  </div>
 			</div>
@@ -312,6 +302,11 @@
             $('#loginBtn').click(function () {
                 $('#loginModal').modal('show');
             });
+
+            $('.close').click(function(){
+  				var $target = $(this).parents('div .card-flyer');
+  				$target.hide('slow', function(){ $target.remove(); });
+			})
         });
 
 		function validate(){
@@ -322,6 +317,7 @@
 				alert ("Login successfully");
 				document.getElementById("addevent").style.display ="block";
 				window.location = "#addevent"; // Redirecting to other page.
+				$(".close").css("display", "block")
 				return false;
 			}
 			else{
@@ -341,7 +337,6 @@
 			var image = document.getElementById('output');
 
 			Card.innerHTML = `<div class="col-md-12 col-sm-12 col-lg-12" id="idA">
-					<a href="#">
 					  <div class="card-flyer">
 						<div class="text-box">
 						  <div class="row">
@@ -350,7 +345,7 @@
 								<img src=${image.src} />
 							  </div>
 							</div>
-							<div class="col-md-6">
+							<div class="col-md-6"><a class="close" href="#" style="display: block;">×</a>
 							  <div class="text-container">
 								<h6 id="EventT">${Ename}</h6>
 								<p id="EventD">${Edes}</p>
@@ -360,13 +355,19 @@
 						  </div>
 						</div>
 					  </div>
-					</a>
 			  </div>` + Card.innerHTML; 
 
 			document.getElementById("clear").reset();
 			document.getElementById("output").src="";
 
+			$('.close').click(function(){
+  				var $target = $(this).parents('div .card-flyer');
+  				$target.hide('slow', function(){ $target.remove(); });
+			})
 		}
+
+		
+
     </script>
 
 </html>
